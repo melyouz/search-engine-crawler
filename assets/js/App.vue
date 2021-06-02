@@ -34,7 +34,7 @@
                         </v-form>
                     </v-flex>
 
-                    <v-flex class="xs12" v-if="domains.items.length">
+                    <v-flex class="xs12 mt-6" v-if="domains.items.length">
                         <v-data-table
                             :headers="domains.headers"
                             :items="domains.items"
