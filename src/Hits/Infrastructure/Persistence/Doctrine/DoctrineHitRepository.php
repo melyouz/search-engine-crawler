@@ -54,6 +54,6 @@ class DoctrineHitRepository implements HitRepositoryInterface
 
     public function nextIdentity(): HitId
     {
-        return HitId::fromString((string) Uuid::v4());
+        return HitId::fromString((string)Uuid::v4());
     }
 }

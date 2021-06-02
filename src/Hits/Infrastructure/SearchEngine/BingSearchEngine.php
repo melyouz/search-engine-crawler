@@ -31,7 +31,7 @@ class BingSearchEngine implements SearchEngineInterface
 
         $crawler = new Crawler($html);
 
-        foreach($crawler->filter('#b_results > li > h2 > a') as $item) {
+        foreach ($crawler->filter('#b_results > li > h2 > a') as $item) {
             $destUrl = $item->attributes->getNamedItem('href')->nodeValue;
             if (!$destUrlHost = $this->guessDestUrlHost($destUrl)) {
                 continue;
@@ -58,7 +58,7 @@ class BingSearchEngine implements SearchEngineInterface
 
     private function guessDestUrlHost(string $destUrl): ?string
     {
-        $destUrlIsValid = (bool) filter_var($destUrl, FILTER_VALIDATE_URL);
+        $destUrlIsValid = (bool)filter_var($destUrl, FILTER_VALIDATE_URL);
 
         if (!$destUrlIsValid) {
             return null;

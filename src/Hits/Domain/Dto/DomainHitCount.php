@@ -21,16 +21,16 @@ class DomainHitCount
         $this->count = $count;
     }
 
-    public static function fromArray(array $data): self
-    {
-        return new self(Domain::fromString($data['domain']), $data['count']);
-    }
-
     private function countValidationGuard(int $count): void
     {
         if ($count < self::MIN_COUNT) {
             throw new InvalidArgumentException(sprintf('Count must be greater or equal to %d.', self::MIN_COUNT));
         }
+    }
+
+    public static function fromArray(array $data): self
+    {
+        return new self(Domain::fromString($data['domain']), $data['count']);
     }
 
     public function getDomain(): Domain

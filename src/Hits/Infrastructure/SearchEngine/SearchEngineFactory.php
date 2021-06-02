@@ -22,7 +22,7 @@ class SearchEngineFactory implements SearchEngineFactoryInterface
 
     public function get(SearchEngineName $searchEngine): SearchEngineInterface
     {
-        switch($searchEngine->value()) {
+        switch ($searchEngine->value()) {
             case SearchEngineName::BING:
                 return $this->bingSearchEngine;
             case SearchEngineName::GOOGLE:

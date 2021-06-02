@@ -79,7 +79,7 @@ class GoogleSearchEngine implements SearchEngineInterface
         }
 
         $destUrl = $parsedQueryParams['q'];
-        $destUrlIsValid = (bool) filter_var($destUrl, FILTER_VALIDATE_URL);
+        $destUrlIsValid = (bool)filter_var($destUrl, FILTER_VALIDATE_URL);
 
         if (!$destUrlIsValid) {
             return null;

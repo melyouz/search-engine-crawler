@@ -20,7 +20,7 @@ class InMemoryHitRepository implements HitRepositoryInterface
     public function allGroupedByDomain(SearchEngineName $searchEngineName): array
     {
         $domainsCounts = [];
-        foreach($this->hits as $hit) {
+        foreach ($this->hits as $hit) {
 
             if (!$hit->getSearchEngine()->sameValueAs($searchEngineName)) {
                 continue;
@@ -35,7 +35,7 @@ class InMemoryHitRepository implements HitRepositoryInterface
         }
 
         $result = [];
-        foreach($domainsCounts as $domain => $count) {
+        foreach ($domainsCounts as $domain => $count) {
             $result[] = new DomainHitCount(Domain::fromString($domain), $count);
         }
 
@@ -53,6 +53,6 @@ class InMemoryHitRepository implements HitRepositoryInterface
 
     public function nextIdentity(): HitId
     {
-        return HitId::fromString((string) Uuid::v4());
+        return HitId::fromString((string)Uuid::v4());
     }
 }
