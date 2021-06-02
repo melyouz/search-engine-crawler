@@ -6,11 +6,9 @@ namespace App\Hits\Application\Service;
 
 use App\Hits\Application\SearchEngineFactoryInterface;
 use App\Hits\Domain\Model\Hit;
-use App\Hits\Domain\Model\Hit\HitId;
 use App\Hits\Domain\Model\Hit\SearchEngineName;
 use App\Hits\Domain\Model\Hit\SearchTerm;
 use App\Hits\Domain\Repository\HitRepositoryInterface;
-use Symfony\Component\Uid\Uuid;
 
 class SearchService
 {
@@ -32,7 +30,7 @@ class SearchService
         $domains = $searchEngine->getDomains($searchTerm);
 
         foreach ($domains as $domain) {
-            $hitId = HitId::fromString((string)Uuid::v4());
+            $hitId = $this->hitRepository->nextIdentity();
             $hit = new Hit($hitId, $searchEngineName, $searchTerm, $domain);
             $this->hitRepository->save($hit);
         }

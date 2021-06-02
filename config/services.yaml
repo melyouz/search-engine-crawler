@@ -26,3 +26,6 @@ services:
     App\Hits\Presentation\Api\Controller\:
         resource: '../src/Hits/Presentation/Api/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Hits\Domain\Repository\HitRepositoryInterface:
+        alias: App\Hits\Infrastructure\Persistence\Doctrine\DoctrineHitRepository

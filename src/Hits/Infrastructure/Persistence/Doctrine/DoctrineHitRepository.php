@@ -5,11 +5,12 @@ namespace App\Hits\Infrastructure\Persistence\Doctrine;
 
 use App\Hits\Domain\Dto\DomainHitCount;
 use App\Hits\Domain\Model\Hit;
+use App\Hits\Domain\Model\Hit\HitId;
 use App\Hits\Domain\Model\Hit\SearchEngineName;
 use App\Hits\Domain\Repository\HitRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
-use Doctrine\ORM\Query\Expr;
+use Symfony\Component\Uid\Uuid;
 use function Doctrine\ORM\QueryBuilder;
 
 class DoctrineHitRepository implements HitRepositoryInterface
@@ -49,5 +50,10 @@ class DoctrineHitRepository implements HitRepositoryInterface
     {
         $this->em->persist($hit);
         $this->em->flush();
+    }
+
+    public function nextIdentity(): HitId
+    {
+        return HitId::fromString((string) Uuid::v4());
     }
 }
