@@ -71,7 +71,7 @@ export default {
         appName: "SearchEngineCrawler",
         appVersion: "v1.0",
         searchEngines: [
-            {name: 'Google', value: 'google'},
+            //{name: 'Google', value: 'google'},
             {name: 'Bing', value: 'bing'},
         ],
         domains: {
@@ -81,7 +81,7 @@ export default {
         formValid: true,
         formLoading: false,
         formData: {
-            searchEngine: "google",
+            searchEngine: "bing",
             searchTerm: ""
         },
         rules: {

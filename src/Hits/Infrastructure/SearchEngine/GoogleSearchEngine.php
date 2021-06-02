@@ -7,7 +7,6 @@ namespace App\Hits\Infrastructure\SearchEngine;
 use App\Hits\Application\SearchEngineInterface;
 use App\Hits\Domain\Model\Hit\Domain;
 use App\Hits\Domain\Model\Hit\SearchTerm;
-use Exception;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -28,7 +27,6 @@ class GoogleSearchEngine implements SearchEngineInterface
         $domains = [];
 
         if (!$html = $this->fetchHtml($searchTerm)) {
-            throw new Exception('Non 200 response received');
             return [];
         }
 
@@ -36,7 +34,6 @@ class GoogleSearchEngine implements SearchEngineInterface
         $links = $crawler->filter('#main > div > div > div:nth-child(1) > a');
 
         if (!$links->count()) {
-            throw new Exception('Links not found. HTML: ' . $html);
             return [];
         }
 
