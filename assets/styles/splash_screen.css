@@ -1,0 +1,18 @@
+.splash-screen {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -0.5em;
+    color: #ddd;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.splash-screen .app-version {
+    display: block;
+    font-weight: normal;
+    font-size: 1rem;
+}

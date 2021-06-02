@@ -1,4 +1,8 @@
-controllers:
+app_home:
+    resource: ../../src/Shared/Presentation/Controller/
+    type: annotation
+
+app_api_hits:
     resource: ../../src/Hits/Presentation/Api/Controller/
     type: annotation
 
