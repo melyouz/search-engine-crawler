@@ -4,6 +4,7 @@
 namespace App\Hits\Application\Service;
 
 
+use App\Hits\Domain\Dto\DomainHitCount;
 use App\Hits\Domain\Model\Hit\SearchEngineName;
 use App\Hits\Domain\Repository\HitRepositoryInterface;
 
@@ -16,6 +17,7 @@ class ListService
         $this->hitRepository = $hitRepository;
     }
 
+    /** @return DomainHitCount[] */
     public function list(string $searchEngineName): array
     {
         $searchEngineName = SearchEngineName::fromString($searchEngineName);
