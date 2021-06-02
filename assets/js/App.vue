@@ -11,30 +11,31 @@
                 <v-container>
                     <v-flex class="xs12 text-xs-center">
                         <v-form
-                            @keyup.native.enter="submit"
-                            autocomplete="off"
-                            lazy-validation
                             ref="form"
                             v-model="formValid"
+                            autocomplete="off"
+                            lazy-validation
+                            @keyup.native.enter="submit"
                         >
-                            <v-select :items="searchEngines" :rules="rules.searchEngine"  item-text="name" item-value="value" label="Search Engine" v-model="formData.searchEngine"/>
+                            <v-select v-model="formData.searchEngine" :items="searchEngines" :rules="rules.searchEngine"
+                                      item-text="name" item-value="value" label="Search Engine"/>
 
                             <v-text-field
+                                v-model="formData.searchTerm"
                                 :rules="rules.searchTerm"
                                 autocapitalize="none"
                                 autocorrect="off"
                                 label="Introduce a search term"
                                 required
-                                v-model="formData.searchTerm"
                             ></v-text-field>
 
-                            <v-btn :disabled="!formValid || formLoading" :loading="formLoading" @click="submit" block
-                                   color="primary" large>Search
+                            <v-btn :disabled="!formValid || formLoading" :loading="formLoading" block color="primary"
+                                   large @click="submit">Search
                             </v-btn>
                         </v-form>
                     </v-flex>
 
-                    <v-flex class="xs12 mt-6" v-if="domains.items.length">
+                    <v-flex v-if="domains.items.length" class="xs12 mt-6">
                         <v-data-table
                             :headers="domains.headers"
                             :items="domains.items"
@@ -74,7 +75,7 @@ export default {
             {name: 'Bing', value: 'bing'},
         ],
         domains: {
-            headers: [{ text: 'Domain', value: 'domain' }, { text: 'Count', value: 'count' },],
+            headers: [{text: 'Domain', value: 'domain'}, {text: 'Count', value: 'count'},],
             items: [],
         },
         formValid: true,
