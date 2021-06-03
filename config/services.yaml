@@ -8,6 +8,7 @@ parameters:
     app.version: 'v1.0'
     app.hits.google_url: '%env(GOOGLE_URL)%'
     app.hits.bing_url: '%env(BING_URL)%'
+    app.hits.duckduckgo_url: '%env(DUCKDUCKGO_URL)%'
 
 services:
     # default configuration for services in *this* file

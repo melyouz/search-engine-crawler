@@ -11,10 +11,12 @@ class SearchEngineName extends AbstractStringValueObject
 {
     public const GOOGLE = 'google';
     public const BING = 'bing';
+    public const DUCKDUCKGO = 'duckduckgo';
 
     public const CHOICES = [
         self::GOOGLE,
         self::BING,
+        self::DUCKDUCKGO,
     ];
 
     public static function fromString(string $value): self

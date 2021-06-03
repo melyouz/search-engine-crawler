@@ -73,6 +73,7 @@ export default {
         searchEngines: [
             //{name: 'Google', value: 'google'},
             {name: 'Bing', value: 'bing'},
+            {name: 'DuckDuckGo', value: 'duckduckgo'},
         ],
         domains: {
             headers: [{text: 'Domain', value: 'domain'}, {text: 'Count', value: 'count'},],
